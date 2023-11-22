@@ -22,7 +22,7 @@ app.options('/create-checkout-session', cors());
 // Handle the actual POST request
 app.post('/create-checkout-session', async (req, res) => {
   // Allow requests only from specific origins
-  res.header('Access-Control-Allow-Origin',"http://127.0.0.1:5500");
+  res.header('Access-Control-Allow-Origin',"*");
   res.header('Access-Control-Allow-Headers', 'Content-Type');
 
   try {
