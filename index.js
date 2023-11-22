@@ -7,6 +7,7 @@ const secret_key = process.env.SECRET_KEY
 const url = process.env.ENV === "development" ? process.env.DEV_URL : process.env.PROD_URL;
 const stripe = require('stripe')(secret_key);
 
+
 // Enable CORS for all routes
 app.use(cors());
 
