@@ -3,8 +3,8 @@ const express = require('express');
 const cors = require('cors'); // Add this line to include the 'cors' module
 const app = express();
 
-const secret_key = "sk_test_51O9nO6DzfAzbhczjJI27Vix4L5AFMBQDTEd7thTsS46FhRHpnY5IOjRxhu4pPkDEIcV1UAqWy7KrStPVewduqjZg00rICMT23A"
-const url = "http://127.0.0.1:5500"
+const secret_key = process.env.SECRET_KEY
+const url = process.env.ENV === "development" ? process.env.DEV_URL : process.env.PROD_URL;
 const stripe = require('stripe')(secret_key);
 
 // Enable CORS for all routes
@@ -22,7 +22,7 @@ app.options('/create-checkout-session', cors());
 // Handle the actual POST request
 app.post('/create-checkout-session', async (req, res) => {
   // Allow requests only from specific origins
-  res.header('Access-Control-Allow-Origin', "http://127.0.0.1:5500");
+  res.header('Access-Control-Allow-Origin', url);
   res.header('Access-Control-Allow-Headers', 'Content-Type');
 
   try {
