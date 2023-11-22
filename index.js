@@ -39,8 +39,8 @@ app.post('/create-checkout-session', async (req, res) => {
         quantity: 1,
       }],
       mode: 'payment',
-      success_url: `${url}/public/success`, // Replace with your actual success URL
-      cancel_url: `${url}/public/error`,   // Replace with your actual error URL
+      success_url: `${url}/public/success.html`, // Replace with your actual success URL
+      cancel_url: `${url}/public/error.html`,   // Replace with your actual error URL
     });
 
     res.json({ id: session.id });
