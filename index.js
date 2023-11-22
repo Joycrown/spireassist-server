@@ -3,7 +3,6 @@ const express = require('express');
 const cors = require('cors'); // Add this line to include the 'cors' module
 const app = express();
 
-
 const secret_key = process.env.SECRET_KEY
 const url = process.env.ENV === "development" ? process.env.DEV_URL : process.env.PROD_URL;
 const stripe = require('stripe')(secret_key);
